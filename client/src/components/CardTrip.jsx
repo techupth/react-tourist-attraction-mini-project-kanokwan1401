@@ -22,7 +22,10 @@ const CardTrip = (prop) => {
         <a href={prop.url} target="_blank">
           <h1 className=" text-[22px] font-medium">{prop.title} </h1>
         </a>
-        <p className=" text-gray-500 ">{prop.description.slice(0, 100)} ..</p>
+        <p className=" text-gray-500 ">
+          {prop.description.slice(0, 100)}{" "}
+          <span className="text-[#2D9ADA]">..</span>
+        </p>
         <a
           className=" underline underline-offset-1 text-[#73b9e9] cursor-pointer"
           target="_blank"
@@ -34,15 +37,22 @@ const CardTrip = (prop) => {
           หมวด:{" "}
           {prop.tag.map((item, index) => {
             return (
-              <span
-                className=" underline underline-offset-1 cursor-default"
-                key={index}
-                onClick={() => {
-                  prop.setKeywords((prev) => (prev ? `${prev} ${item}` : item));
-                }}
-              >
-                {item}
-              </span>
+              <>
+                {index === prop.tag.length - 1 && (
+                  <span className="underline-none "> และ </span>
+                )}
+                <span
+                  className=" underline underline-offset-1 cursor-pointer"
+                  key={index}
+                  onClick={() => {
+                    prop.setKeywords((prev) =>
+                      prev ? `${prev} ${item}` : item
+                    );
+                  }}
+                >
+                  {item}
+                </span>
+              </>
             );
           })}
         </p>

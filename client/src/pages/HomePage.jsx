@@ -42,7 +42,7 @@ function HomePage() {
             onChange={(e) => {
               setKeywords(e.target.value);
             }}
-            className=" w-full border-b-2 outline-none ring-0 text-center py-1"
+            className=" w-full focus:border-[#2D9ADA] border-b-2 outline-none ring-0 text-center py-1"
           />
         </section>
         <section className=" mt-12 w-full flex flex-col gap-12 items-center ">
